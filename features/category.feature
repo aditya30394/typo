@@ -18,12 +18,14 @@ Scenario: Creation of new categories should be allowed
     And I press "Save"
     Then I should see "Test Category"
     And I should see "no articles"
+    And I should see "Category was successfully saved" 
 
 Scenario: Editing of existing categories should be allowed
     When I follow "General"
     Then I fill in "Description" with "test1, test2, test3"
     Then I fill in "Keywords" with "Some Keyword"
     And I press "Save"
+    Then I should see "Category was successfully saved" 
     When I follow "General"
     Then I should see "test1, test2, test3"
     Then I should see "Some Keyword"

@@ -27,10 +27,10 @@ class Admin::CategoriesController < Admin::BaseController
     @categories = Category.find(:all)
     
     # if the category id is present, use it find the category. Otherwise, create new
-    if !params[:id].nil?
-      @category = Category.find(params[:id])
-    else
+    if params[:id].nil?
       @category = Category.new
+    else
+      @category = Category.find(params[:id])
     end
     
     @category.attributes = params[:category]
